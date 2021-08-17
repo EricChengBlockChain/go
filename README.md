@@ -6,7 +6,7 @@ go部署合约
             vim ~/.zshrc  进入文件
                       写入一下四行,
                         export GOROOT="/usr/local/go"
-                        export GOPATH="/Users/zaneli/go"  这里改成自己的目录
+                        export GOPATH="/Users/chengjian/go"  这里改成自己的目录
                         export GOBIN="$GOROOT/bin"
                         export PATH="$PATH:$GOBIN"
                       然后esc,:wq,回车保存
