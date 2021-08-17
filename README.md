@@ -39,7 +39,7 @@ go部署合约
         i、abigen --abi=inbox_sol_inbox.abi --pkg=inbox --out=inbox.go
         ii、以上命令在GOROOT inbox文件夹中执行
 
-第五步, 跑deploy.go, 获得合约地址和交易哈希 (啃爹我用的kovan,测试链的浏览器打不开, 只能具体调用看结果). 
+第五步, 跑deploy.go, 获得合约地址和交易哈希 (我用的kovan,测试链的浏览器打不开, 只能具体调用看结果). 
 
         i、go run deploy.go
         i、deploy.go文件可以放在GOPATH src文件夹中
