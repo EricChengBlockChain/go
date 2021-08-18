@@ -31,8 +31,12 @@ go部署合约
 
 第三步, 把sol合约文件用 solc命令生成abi文件. 
 
-        i、solc --abi inbox.sol //这里命令要改为solc -o ./ --abi inbox.sol 这里使用-o指定abi输出到的目录,不然报错Fatal: Failed to read input ABI: open inbox.abi: no such file or directory
-        ii、把inbox.sol copy到GOROOT下面的inbox文件夹中去
+        i、把inbox.sol copy到GOROOT下面的inbox文件夹中去
+        ii、solc -o ./ --abi inbox.sol 这里使用-o指定abi输出到的目录,不然报错Fatal: Failed to read input ABI: open inbox.abi: no such file or directory
+        iii、solc -o ./ --bin tokencode.sol 生成一个bin文件
+        iiii、abigen --bin=tokencode.bin --abi=tokencode.abi --pkg=tokencode --out=tokencode.go 生成一个tokencode.go文件
+        (此时GOROOT/inbox/下面有以下文件:tokencode.abi	tokencode.bin	tokencode.go	tokencode.sol) 
+            
 
 第四步, 把abi文件用 abigen命令生成go文件, 这样deploy.go可以导入.go的合约文件,来部署它. 
 
