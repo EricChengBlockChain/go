@@ -33,15 +33,14 @@ go部署合约
 
         i、把inbox.sol copy到GOROOT下面的inbox文件夹中去
         ii、solc -o ./ --abi inbox.sol 这里使用-o指定abi输出到的目录,不然报错Fatal: Failed to read input ABI: open inbox.abi: no such file or directory
-        iii、solc -o ./ --bin tokencode.sol 生成一个bin文件
-        iiii、abigen --bin=tokencode.bin --abi=tokencode.abi --pkg=tokencode --out=tokencode.go 生成一个tokencode.go文件
-        (此时GOROOT/inbox/下面有以下文件:tokencode.abi	tokencode.bin	tokencode.go	tokencode.sol) 
+        iii、solc -o ./ --bin inbox.sol 生成一个bin文件
+        iiii、abigen --bin=inbox.bin --abi=inbox.abi --pkg=inbox --out=inbox.go inbox.go文件
+        (此时GOROOT/inbox/下面有以下文件:inbox.abi inbox.bin inbox.go inbox.sol) 
             
 
 第四步, 把abi文件用 abigen命令生成go文件, 这样deploy.go可以导入.go的合约文件,来部署它. 
 
-        i、abigen --abi=inbox_sol_inbox.abi --pkg=inbox --out=inbox.go
-        ii、以上命令在GOROOT inbox文件夹中执行
+        i、以上命令在GOROOT文件夹中执行
 
 第五步, 跑deploy.go, 获得合约地址和交易哈希 (我用的kovan,测试链的浏览器打不开, 只能具体调用看结果). 
 
